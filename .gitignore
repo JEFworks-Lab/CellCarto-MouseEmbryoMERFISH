@@ -1,0 +1,5 @@
+.DS_Store
+*~
+helper/
+data/detected_transcripts.csv.gz
+data/detected_transcripts.part*.csv.gz

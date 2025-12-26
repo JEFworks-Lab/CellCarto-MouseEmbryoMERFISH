@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CellCarto - Cellular Cartography Spatial Transcriptomics Data Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <div id="left-panel">
+            <img class = "logo" src="logo.svg">
+            <div class="panel-content">
+                <div id="description-section">
+                    <h1>3D visualization of spatial transcript distribution for an E15.5 mouse embryo assayed by MERFISH</h1>
+                    <div id="description">
+                        <p>
+                            Data from <a href="https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.123.323956">Chen et al. 2024</a>. Downsampled for performance and demo purposes. 
+                            See the original publication for more information.
+                        </p>
+                        <br>
+                        <p>
+                            <b><u>Usage:</u></b>
+                            Use the mouse to pan and zoom. 
+                            Hold the Control key to rotate.
+                            Hold the Shift key and hover over transcripts for more information.
+                            Color by gene or other transcript features. Click the legend to change the color. 
+                            Filter by transcript features. 
+                        </p>
+                        <br>
+                    </div>
+                </div>
+
+                <div id="legend-section">
+                    <h2>Legend</h2>
+                    <div id="legend" class="legend"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="center-panel">
+            <canvas id="scene"></canvas>
+            <div id="loading">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Loading data... This may take a moment.</div>
+            </div>
+        </div>
+
+        <div id="right-panel">
+            <div class="panel-content">
+                <h2>Controls</h2>
+                
+                <div class="control-group">
+                    <label for="colorBy">Color By:</label>
+                    <select id="colorBy">
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Filters:</label>
+                    <button id="addFilter">+ Add Filter</button>
+                    <div id="filtersContainer"></div>
+                </div>
+
+                <div class="control-group">
+                    <label for="pointSize">Point Size:</label>
+                    <input type="range" id="pointSize" min="1" max="10" step="1" value="5">
+                    <span id="pointSizeValue">1.0</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="sampleRate">Sample Rate (for performance):</label>
+                    <input type="range" id="sampleRate" min="1" max="100" step="1" value="10">
+                    <span id="sampleRateValue">10%</span>
+                </div>
+
+                <div class="info">
+                    <p id="pointCount">Loading data...</p>
+                    <p id="visibleCount">Visible points: 0</p>
+                </div>
+
+                <div class="control-group">
+                    <button id="resetCamera">Reset Camera</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
