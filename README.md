@@ -2,4 +2,6 @@
 
 Explore spatial transcriptomics data for an E15.5 mouse embryo assayed by MERFISH from [Chen et al. 2024](https://www.ahajournals.org/doi/full/10.1161/CIRCRESAHA.123.323956)
 
+Original data: https://zenodo.org/records/10655724
+
 <img src="CellCarto_screenstudio.gif">
